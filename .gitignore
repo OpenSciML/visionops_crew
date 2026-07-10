@@ -1,0 +1,83 @@
+# Local environment and secrets
+.env
+**/.env
+!.env.example
+
+# Python caches and build outputs
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+wheels/
+*.egg-info/
+*.egg-info
+.idea/
+*.egg
+MANIFEST
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.pytype/
+.coverage
+.coverage.*
+htmlcov/
+cover/
+.tox/
+.nox/
+.hypothesis/
+
+# Virtual environments and package-manager state
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+__pypackages__/
+.pdm.toml
+.pdm-python
+.pdm-build/
+
+# Local app/runtime state
+.adk/
+.antigravity/
+antigravity/
+antigravity-workspace/
+docker-data/
+datasets/
+.jupyter/
+.jupyter_ystore.db
+.ipynb_checkpoints/
+*.db
+*.sqlite
+*.sqlite3
+
+# LaTeX build outputs
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+
+# OS and editor files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Repo-local agent/plugin state
+.agents/
+skills-lock.json
+
+# Demo captures
+demo.mov

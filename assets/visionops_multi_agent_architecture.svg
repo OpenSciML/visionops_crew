@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1220" viewBox="0 0 2200 1220" role="img" aria-labelledby="title desc">
+<title id="title">VisionOps Crew multi-agent architecture</title>
+<desc id="desc">Architecture diagram showing the VisionOps Crew orchestrator, specialist agents, Hugging Face MCP, FiftyOne MCP, Jupyter MCP, ML Engineer skills, web sources, and generated artifacts.</desc>
+<defs>
+<marker id="arrow-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#500000"/></marker>
+<marker id="arrow-teal" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#500000"/></marker>
+<marker id="arrow-gold" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9b6a00"/></marker>
+<linearGradient id="orch" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#500000"/><stop offset="100%" stop-color="#7a1f1f"/></linearGradient>
+<style>
+text{font-family:Arial,Inter,sans-serif;letter-spacing:0}
+.title{font-size:52px;font-weight:700;fill:#500000}
+.subtitle{font-size:23px;fill:#3c3c3c}
+.section{font-size:18px;font-weight:700;fill:#500000}
+.node-title{font-size:22px;font-weight:700;fill:#221f1f}
+.node-subtitle{font-size:15px;font-weight:700;fill:#500000}
+.node-text{font-size:14px;fill:#3c3c3c}
+.small{font-size:13px;fill:#3c3c3c}
+.label{font-size:13px;font-weight:700;fill:#500000}
+.white-title{font-size:23px;font-weight:700;fill:#fff}
+.white-subtitle{font-size:16px;font-weight:600;fill:#f7f4f0}
+.white-text{font-size:15px;fill:#ffffff}
+</style>
+</defs>
+<rect x="0" y="0" width="2200" height="1220" fill="#f7f4f0"/>
+<text class="title" x="80" y="86">VisionOps Crew</text>
+<text class="subtitle" x="82" y="122">ADK architecture: specialist agents, MCP tools, ML Engineer skills, Jupyter notebooks, and Antigravity artifact oversight</text>
+
+<text class="section" x="80" y="178">ENTRY AND ORCHESTRATION</text>
+<rect x="80" y="205" width="230" height="125" rx="8" fill="#ffffff" stroke="#d6d2c4" stroke-width="2"/>
+<text class="node-title" x="105" y="250">User CV goal</text>
+<text class="node-text" x="105" y="278">Task, dataset, model,</text>
+<text class="node-text" x="105" y="302">constraints, desired output</text>
+
+<rect x="370" y="205" width="240" height="125" rx="8" fill="#ffffff" stroke="#d6d2c4" stroke-width="2"/>
+<text class="node-title" x="395" y="250">ADK Web / App</text>
+<text class="node-text" x="395" y="278">Runs VisionOps Crew:</text>
+<text class="node-text" x="395" y="302">visionops_crew</text>
+
+<rect x="705" y="185" width="410" height="165" rx="12" fill="url(#orch)"/>
+<text class="white-title" x="735" y="232">VisionOps Crew Orchestrator</text>
+<text class="white-subtitle" x="735" y="260">visionops_orchestrator</text>
+<text class="white-text" x="735" y="292">Plans, reasons, routes specialists,</text>
+<text class="white-text" x="735" y="318">preserves context, and synthesizes</text>
+<text class="white-text" x="735" y="344">one coherent CV answer.</text>
+
+<rect x="1210" y="185" width="340" height="165" rx="8" fill="#f7f4f0" stroke="#a7a9ac" stroke-width="2"/>
+<text class="node-title" x="1238" y="232">Antigravity Tool</text>
+<text class="node-subtitle" x="1238" y="260">run_antigravity_agent</text>
+<text class="node-text" x="1238" y="292">Direct callable orchestrator tool</text>
+<text class="node-text" x="1238" y="318">for code, images, reports,</text>
+<text class="node-text" x="1238" y="344">notebooks, and artifacts</text>
+
+<rect x="1660" y="185" width="360" height="165" rx="8" fill="#3c3c3c" stroke="#202020" stroke-width="2"/>
+<text class="white-title" x="1688" y="232">Unified CV answer</text>
+<text class="white-subtitle" x="1688" y="260">or completed workflow</text>
+<text class="white-text" x="1688" y="292">Evidence, plans, dataset insights,</text>
+<text class="white-text" x="1688" y="318">training steps, artifacts, caveats,</text>
+<text class="white-text" x="1688" y="344">and next actions</text>
+
+<path d="M310 268 L370 268" fill="none" stroke="#500000" stroke-width="3" marker-end="url(#arrow-blue)"/>
+<path d="M610 268 L705 268" fill="none" stroke="#500000" stroke-width="3" marker-end="url(#arrow-blue)"/>
+<path d="M1115 268 L1210 268" fill="none" stroke="#500000" stroke-width="3" marker-end="url(#arrow-blue)"/>
+<path d="M1550 268 L1660 268" fill="none" stroke="#500000" stroke-width="3" marker-end="url(#arrow-blue)"/>
+
+<text class="section" x="80" y="440">SPECIALIST AGENTS</text>
+<rect x="80" y="465" width="300" height="135" rx="8" fill="#ffffff" stroke="#500000" stroke-width="2"/>
+<text class="node-title" x="105" y="507">Vision Task Planner</text>
+<text class="node-subtitle" x="105" y="533">vision_task_planner</text>
+<text class="node-text" x="105" y="562">Task type, missing constraints,</text>
+<text class="node-text" x="105" y="585">success criteria, next stage</text>
+
+<rect x="420" y="465" width="300" height="135" rx="8" fill="#ffffff" stroke="#500000" stroke-width="2"/>
+<text class="node-title" x="445" y="507">CV Research Agent</text>
+<text class="node-subtitle" x="445" y="533">cv_research</text>
+<text class="node-text" x="445" y="562">Hub-backed model, dataset,</text>
+<text class="node-text" x="445" y="585">paper, doc, license research</text>
+
+<rect x="760" y="465" width="300" height="135" rx="8" fill="#ffffff" stroke="#500000" stroke-width="2"/>
+<text class="node-title" x="785" y="507">Data Curator Agent</text>
+<text class="node-subtitle" x="785" y="533">data_curator</text>
+<text class="node-text" x="785" y="562">Local import, schema, labels,</text>
+<text class="node-text" x="785" y="585">views, filtering, evaluation</text>
+
+<rect x="1100" y="465" width="300" height="135" rx="8" fill="#ffffff" stroke="#500000" stroke-width="2"/>
+<text class="node-title" x="1125" y="507">ML Engineer Agent</text>
+<text class="node-subtitle" x="1125" y="533">ml_engineer</text>
+<text class="node-text" x="1125" y="562">Training code, debugging,</text>
+<text class="node-text" x="1125" y="585">hardware, notebooks, validation</text>
+
+<rect x="1440" y="465" width="280" height="135" rx="8" fill="#ffffff" stroke="#500000" stroke-width="2"/>
+<text class="node-title" x="1465" y="507">Google Search Agent</text>
+<text class="node-subtitle" x="1465" y="533">google_search_agent</text>
+<text class="node-text" x="1465" y="562">Fresh web info, releases,</text>
+<text class="node-text" x="1465" y="585">official docs, APIs</text>
+
+<path d="M910 350 L910 420 L230 420 L230 465" fill="none" stroke="#500000" stroke-width="3" marker-end="url(#arrow-teal)"/>
+<path d="M910 350 L910 420 L570 420 L570 465" fill="none" stroke="#500000" stroke-width="3" marker-end="url(#arrow-teal)"/>
+<path d="M910 350 L910 465" fill="none" stroke="#500000" stroke-width="3" marker-end="url(#arrow-teal)"/>
+<path d="M910 350 L910 420 L1250 420 L1250 465" fill="none" stroke="#500000" stroke-width="3" marker-end="url(#arrow-teal)"/>
+<path d="M910 350 L910 420 L1580 420 L1580 465" fill="none" stroke="#500000" stroke-width="3" marker-end="url(#arrow-teal)"/>
+<text class="label" x="932" y="414">agent tool calls</text>
+
+<text class="section" x="80" y="690">TOOLS, SKILLS, AND RESOURCES</text>
+<rect x="80" y="715" width="300" height="115" rx="8" fill="#f7f4f0" stroke="#a7a9ac" stroke-width="2"/>
+<text class="node-title" x="105" y="758">Planning brief</text>
+<text class="node-text" x="105" y="785">Goal interpretation, risks,</text>
+<text class="node-text" x="105" y="808">stages, specialist sequence</text>
+
+<rect x="420" y="715" width="300" height="115" rx="8" fill="#f7f4f0" stroke="#a7a9ac" stroke-width="2"/>
+<text class="node-title" x="445" y="758">Hugging Face MCP</text>
+<text class="node-text" x="445" y="785">models, datasets, Spaces,</text>
+<text class="node-text" x="445" y="808">papers, docs, benchmarks</text>
+
+<rect x="760" y="715" width="300" height="115" rx="8" fill="#f7f4f0" stroke="#a7a9ac" stroke-width="2"/>
+<text class="node-title" x="785" y="758">FiftyOne MCP + direct tools</text>
+<text class="node-text" x="785" y="785">load/open datasets, schema,</text>
+<text class="node-text" x="785" y="808">samples, labels, evaluation</text>
+
+<rect x="1100" y="695" width="170" height="135" rx="8" fill="#f7f4f0" stroke="#a7a9ac" stroke-width="2"/>
+<text class="node-subtitle" x="1125" y="733">ADK SkillToolset</text>
+<text class="small" x="1125" y="763">hardware-profiling</text>
+<text class="small" x="1125" y="786">jupyter-notebook</text>
+<text class="small" x="1125" y="809">run_skill_script</text>
+
+<rect x="1290" y="695" width="170" height="135" rx="8" fill="#f7f4f0" stroke="#a7a9ac" stroke-width="2"/>
+<text class="node-subtitle" x="1315" y="733">Jupyter MCP</text>
+<text class="small" x="1315" y="763">create / open</text>
+<text class="small" x="1315" y="786">edit / execute</text>
+<text class="small" x="1315" y="809">interact</text>
+
+<rect x="1480" y="695" width="170" height="135" rx="8" fill="#f7f4f0" stroke="#a7a9ac" stroke-width="2"/>
+<text class="node-subtitle" x="1505" y="733">Local execution</text>
+<text class="small" x="1505" y="763">workspace files</text>
+<text class="small" x="1505" y="786">commands</text>
+<text class="small" x="1505" y="809">validation</text>
+
+<rect x="1670" y="695" width="300" height="135" rx="8" fill="#f7f4f0" stroke="#a7a9ac" stroke-width="2"/>
+<text class="node-title" x="1695" y="737">Web / API sources</text>
+<text class="node-text" x="1695" y="765">Official docs, releases,</text>
+<text class="node-text" x="1695" y="788">vendor pages, APIs, and</text>
+<text class="node-text" x="1695" y="811">fresh public references</text>
+
+<path d="M230 600 L230 715" fill="none" stroke="#9b6a00" stroke-width="3" marker-end="url(#arrow-gold)"/>
+<path d="M570 600 L570 715" fill="none" stroke="#9b6a00" stroke-width="3" marker-end="url(#arrow-gold)"/>
+<path d="M910 600 L910 715" fill="none" stroke="#9b6a00" stroke-width="3" marker-end="url(#arrow-gold)"/>
+<path d="M1215 600 L1185 695" fill="none" stroke="#9b6a00" stroke-width="3" marker-end="url(#arrow-gold)"/>
+<path d="M1255 600 L1375 695" fill="none" stroke="#9b6a00" stroke-width="3" marker-end="url(#arrow-gold)"/>
+<path d="M1295 600 L1565 695" fill="none" stroke="#9b6a00" stroke-width="3" marker-end="url(#arrow-gold)"/>
+<path d="M1580 600 L1820 695" fill="none" stroke="#9b6a00" stroke-width="3" marker-end="url(#arrow-gold)"/>
+
+<text class="section" x="80" y="910">GENERATED AND MANAGED ARTIFACTS</text>
+<rect x="760" y="940" width="300" height="85" rx="8" fill="#fff7df" stroke="#9b6a00" stroke-width="2"/>
+<text class="node-title" x="785" y="976">FiftyOne datasets + App</text>
+<text class="node-text" x="785" y="1002">MongoDB plus local media files</text>
+
+<rect x="1100" y="940" width="250" height="85" rx="8" fill="#fff7df" stroke="#9b6a00" stroke-width="2"/>
+<text class="node-title" x="1125" y="976">Jupyter notebooks</text>
+<text class="node-text" x="1125" y="1002">Interactive prototypes and plots</text>
+
+<rect x="1390" y="940" width="250" height="85" rx="8" fill="#fff7df" stroke="#9b6a00" stroke-width="2"/>
+<text class="node-title" x="1415" y="976">Local workspace</text>
+<text class="node-text" x="1415" y="1002">Source code, scripts, outputs</text>
+
+<rect x="1680" y="940" width="300" height="85" rx="8" fill="#fff7df" stroke="#9b6a00" stroke-width="2"/>
+<text class="node-title" x="1705" y="976">Generated artifacts</text>
+<text class="node-text" x="1705" y="1002">Reports, visualizations, model outputs</text>
+
+<path d="M910 830 L910 940" fill="none" stroke="#9b6a00" stroke-width="3" marker-end="url(#arrow-gold)"/>
+<path d="M1375 830 L1225 940" fill="none" stroke="#9b6a00" stroke-width="3" marker-end="url(#arrow-gold)"/>
+<path d="M1565 830 L1515 940" fill="none" stroke="#9b6a00" stroke-width="3" marker-end="url(#arrow-gold)"/>
+<path d="M1185 830 L1830 940" fill="none" stroke="#9b6a00" stroke-width="3" marker-end="url(#arrow-gold)"/>
+
+<text class="small" x="80" y="1165">Antigravity is a direct orchestrator callable tool. ML Engineer keeps ADK skills for hardware profiling and Jupyter workflows, with Jupyter MCP for notebook creation, editing, execution, and interaction.</text>
+</svg>

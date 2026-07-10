@@ -38,36 +38,65 @@ The main ADK app is `visionops_orchestrator`. It acts as a parent agent that
 calls specialist agents and tools, decides where each part of a request should
 go, compares specialist outputs, and synthesizes the final response.
 
-```text
-User
-  |
-  v
-visionops_orchestrator
-  |
-  +-- vision_task_planner
-  |     Clarifies the CV task, constraints, risks, success criteria, and
-  |     recommended specialist sequence.
-  |
-  +-- cv_research
-  |     Uses Hugging Face MCP for models, datasets, Spaces, papers,
-  |     documentation, model cards, and practical recommendations.
-  |
-  +-- data_curator
-  |     Uses direct import/open tools plus FiftyOne MCP for local dataset import,
-  |     schema inspection, summaries, filtering, App coordination, and dataset
-  |     operations.
-  |
-  +-- ml_engineer
-  |     Uses hardware profiling, Jupyter MCP, and shell tools to design, edit,
-  |     debug, and validate ML workflows.
-  |
-  +-- google_search_agent
-  |     Fetches current public information and non-Hugging Face sources.
-  |
-  +-- run_antigravity_agent (optional)
-        Adds an opt-in Antigravity SDK super-agent for artifact oversight,
-        stronger code generation, image generation, notebooks, reports, and
-        implementation-heavy tasks after explicit user confirmation.
+```mermaid
+flowchart LR
+    user[User CV goal<br/>task, dataset, constraints] --> adk[ADK Web / App<br/>VisionOps Crew<br/>visionops_orchestrator]
+    adk --> orchestrator[VisionOps Crew Orchestrator<br/>visionops_orchestrator<br/>plan, reason, route, synthesize]
+
+    orchestrator -- Agent tool call --> planner[Vision Task Planner<br/>vision_task_planner<br/>task brief, constraints,<br/>success criteria, next step]
+    orchestrator -- Agent tool call --> research[CV Research Agent<br/>cv_research<br/>models, datasets, papers,<br/>docs, licenses]
+    orchestrator -- Agent tool call --> curator[Data Curator Agent<br/>data_curator<br/>local dataset import,<br/>inspection, labels, views]
+    orchestrator -- Agent tool call --> ml[ML Engineer Agent<br/>ml_engineer<br/>training code, debugging,<br/>hardware, notebooks]
+    orchestrator -- Search tool call --> search[Google Search Agent<br/>google_search_agent<br/>fresh web sources,<br/>official docs, APIs]
+    orchestrator -- Direct callable tool --> antigravity[Antigravity Tool<br/>run_antigravity_agent<br/>SDK-powered code, image,<br/>report, artifact oversight]
+
+    planner --> brief[Planning brief<br/>goal interpretation,<br/>task type, specialist sequence]
+
+    research --> hf[Hugging Face MCP<br/>Streamable HTTP<br/>hub_repo_search, repo details,<br/>papers, Spaces, docs]
+
+    curator --> direct[Direct data curator tools<br/>load_huggingface_dataset<br/>open_fiftyone_dataset]
+    curator --> fiftyone_mcp[FiftyOne MCP over stdio<br/>datasets, schema, samples,<br/>labels, views, evaluation]
+    direct --> fiftyone[FiftyOne datasets + App]
+    fiftyone_mcp --> fiftyone
+    fiftyone --> mongo[(MongoDB)]
+    direct --> media[Materialized media files<br/>datasets/&lt;dataset&gt;/media]
+
+    ml --> skillset[ADK SkillToolset<br/>hardware-profiling<br/>jupyter-notebook]
+    skillset --> hardware[hardware-profiling skill<br/>CPU, RAM, frameworks,<br/>CUDA, MPS, accelerators]
+    skillset --> jupyter[Jupyter MCP<br/>create, open, edit,<br/>execute, interact]
+    jupyter --> notebooks[Jupyter notebooks<br/>interactive prototypes,<br/>plots, experiments]
+    ml --> env[EnvironmentToolset<br/>workspace-rooted files,<br/>commands, validation]
+    ml --> code_agent[ML Code Execution Agent<br/>BuiltInCodeExecutor<br/>scratch calculations and probes]
+    env --> repo[Local project workspace<br/>source code, scripts, outputs]
+
+    search --> web[Current web sources<br/>official docs, releases,<br/>vendors, APIs]
+
+    brief --> synthesis[Unified CV answer<br/>plan, evidence, dataset insights,<br/>training steps, artifacts,<br/>caveats, next actions]
+    hf --> synthesis
+    fiftyone --> synthesis
+    mongo --> synthesis
+    media --> synthesis
+    notebooks --> synthesis
+    hardware --> synthesis
+    repo --> synthesis
+    code_agent --> synthesis
+    antigravity --> synthesis
+    web --> synthesis
+    orchestrator --> synthesis
+
+    classDef entry fill:#f7f4f0,stroke:#3c3c3c,stroke-width:2px,color:#1d1d1f;
+    classDef orchestrator fill:#500000,stroke:#2b0000,stroke-width:3px,color:#ffffff;
+    classDef agent fill:#ffffff,stroke:#500000,stroke-width:2px,color:#221f1f;
+    classDef tool fill:#f7f4f0,stroke:#a7a9ac,stroke-width:1.5px,color:#221f1f;
+    classDef store fill:#fff7df,stroke:#9b6a00,stroke-width:1.5px,color:#332000;
+    classDef output fill:#3c3c3c,stroke:#202020,stroke-width:2px,color:#ffffff;
+
+    class user,adk entry;
+    class orchestrator orchestrator;
+    class planner,research,curator,ml,search,antigravity agent;
+    class brief,hf,direct,fiftyone_mcp,skillset,hardware,jupyter,env,code_agent,web tool;
+    class fiftyone,mongo,media,notebooks,repo store;
+    class synthesis output;
 ```
 
 The usual flow is:
